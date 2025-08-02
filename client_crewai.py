@@ -12,9 +12,12 @@ warnings.filterwarnings("ignore", category=PydanticDeprecatedSince20)
 logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger(__name__)
 
+# this is your prompt input
+city="Paris"
+
 # define MCP server parameters
 server_params={
-    "url":"http://44.202.41.246:8000/sse?city=Jakarta",
+    "url":"http://127.0.0.1:8000/sse?city=".format(city),
     "transport": "sse"
 }
 
