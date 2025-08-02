@@ -7,6 +7,7 @@ This project implements an MCP (Model Context Protocol) server to fetch live wea
 
 ## MCP Marketplace (link)
 ##### https://mcpmarket.com/server/findweather
+![MCP Marketplace](images/mcp_market.png)
 
 ## Features
 - **Real-Time Weather Data**: Fetch current weather conditions, including temperature, wind speed, humidity, and more.
