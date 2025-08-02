@@ -1,4 +1,4 @@
-# MCP Server for Live Weather Details
+# MCP Server for Live Weather (with CrewAI- Agentic AI Solution)
 
 This project implements an MCP (Model Context Protocol) server to fetch live weather details using the [WeatherAPI.com](https://www.weatherapi.com/) API. It supports querying weather data by city name or latitude/longitude and integrates with CrewAI for agent-based workflows and A2A (Agent-to-Agent) communication for collaborative data processing.
 
@@ -13,7 +13,7 @@ This project implements an MCP (Model Context Protocol) server to fetch live wea
 - **Scalable and Secure**: Designed for scalability with robust error handling.
 
 ## Prerequisites
-- Python 3.8 or higher
+- Python 3.10 strictly equal or higher version (for crewai_tools)
 - A free API key from [WeatherAPI.com](https://www.weatherapi.com/)
 - Basic understanding of CrewAI, MCP, and A2A protocols
 
