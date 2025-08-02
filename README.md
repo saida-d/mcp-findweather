@@ -61,7 +61,7 @@ This project implements an MCP (Model Context Protocol) server to fetch live wea
 2. **Run the CrewAI Workflow**:
    Execute the CrewAI script to fetch and summarize weather data:
    ```bash
-   python mcp_weather.py
+   python client_crewai.py
    ```
    Example output:
    ```
