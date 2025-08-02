@@ -85,48 +85,9 @@ from pydantic import BaseModel
 import os
 from dotenv import load_dotenv
 
-load_dotenv()
-app = FastAPI()
-mcp = FastMCP('weather')
-api_key = os.getenv('WEATHER_API_KEY')
-api_base = 'https://api.weatherapi.com/v1'
-
-class WeatherRequest(BaseModel):
-    city: str | None = None
-    lat: float | None = None
-    lon: float | None = None
-
-async def make_weatherapi_request(url: str) -> dict[str, Any] | None:
-    headers = {"Accept": "application/json"}
-    try:
-        async with httpx.AsyncClient(timeout=30.0) as client:
-            response = await client.get(url, headers=headers)
-            response.raise_for_status()
-            return response.json()
-    except Exception as e:
-        print(f"Request failed: {e}")
-        return None
-
-@mcp.tool()
-async def get_weather(request: WeatherRequest) -> str:
-    """Get current weather by city or coordinates."""
-    if request.city:
-        url = f"{api_base}/current.json?key={api_key}&q={request.city}"
-    elif request.lat is not None and request.lon is not None:
-        url = f"{api_base}/current.json?key={api_key}&q={request.lat},{request.lon}"
-    else:
-        return "Invalid input: Provide city or lat/lon."
-    
-    data = await make_weatherapi_request(url)
-    if not data:
-        return "Failed to fetch weather data."
-    
-    return json.dumps({
-        "city": data['location']['name'],
-        "temperature": data['current']['temp_c'],
-        "windspeed": data['current']['wind_kph'],
-        "condition": data['current']['condition']['text']
-    })
+........
+........
+........
 
 if __name__ == "__main__":
     import uvicorn
@@ -142,51 +103,9 @@ server_params = {
     "url": "http://localhost:8000/sse",
     "transport": "sse"
 }
-
-weather_agent = Agent(
-    role="Weather Data Fetcher",
-    goal="Fetch real-time weather data using the MCP server.",
-    backstory="An AI skilled in retrieving weather data via MCP.",
-    tools=[MCPServerAdapter(server_params)],
-    verbose=True
-)
-
-summary_agent = Agent(
-    role="Weather Analyst",
-    goal="Summarize weather data into a concise report.",
-    backstory="An AI expert in presenting weather data clearly.",
-    verbose=True
-)
-
-weather_task = Task(
-    description="Fetch the current weather for London using the MCP weather server.",
-    expected_output="A JSON string containing weather data for London.",
-    agent=weather_agent
-)
-
-summary_task = Task(
-    description="Summarize the weather data into a human-readable report.",
-    expected_output="A concise weather report for London.",
-    agent=summary_agent,
-    context=[weather_task]
-)
-
-crew = Crew(
-    agents=[weather_agent, summary_agent],
-    tasks=[weather_task, summary_task],
-    process=Process.sequential,
-    verbose=True
-)
-
-def run_crew():
-    try:
-        with MCPServerAdapter(server_params) as tools:
-            print(f"Available tools: {[tool.name for tool in tools]}")
-            result = crew.kickoff()
-            print("\nCrew Result:\n", result)
-    except Exception as e:
-        print(f"Error: {e}")
-
+........
+........
+........
 if __name__ == "__main__":
     run_crew()
 ```
