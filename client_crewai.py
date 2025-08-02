@@ -17,7 +17,7 @@ city="Paris"
 
 # define MCP server parameters
 server_params={
-    "url":"http://127.0.0.1:8000/sse?city=".format(city),
+    "url":"http://127.0.0.1:8000/sse?city={}".format(city),
     "transport": "sse"
 }
 
