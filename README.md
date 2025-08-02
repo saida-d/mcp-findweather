@@ -3,11 +3,7 @@
 
 This project implements an MCP (Model Context Protocol) server to fetch live weather details using the [WeatherAPI.com](https://www.weatherapi.com/) API. It supports querying weather data by city name or latitude/longitude and integrates with CrewAI for agent-based workflows and A2A (Agent-to-Agent) communication for collaborative data processing.
 
-## *Author by Saida.D*
-
-## MCP Marketplace (link)
-##### https://mcpmarket.com/server/findweather
-![MCP Marketplace](images/mcp_market.png)
+### *Author by Saida.D*
 
 ## Features
 - **Real-Time Weather Data**: Fetch current weather conditions, including temperature, wind speed, humidity, and more.
@@ -144,6 +140,11 @@ if __name__ == "__main__":
 - **Local Development**: Run locally for testing.
 - **Cloud Deployment**: Deploy the MCP server on platforms like AWS, Azure, or Heroku for production use.
 - **Security**: Bind the server to `127.0.0.1` for development and validate Origin headers for SSE connections.
+
+
+## Visit MCP Marketplace
+##### search for "findweather" (or) click this link https://mcpmarket.com/server/findweather
+![MCP Marketplace](images/mcp_market.png)
 
 ## Contributing
 Contributions are welcome! Please submit a pull request or open an issue for bugs, features, or improvements.
